@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeroform Studios</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="aero-portfolio">
+    <div class="grid-layer"></div>
+    
+    <header class="header">
+        <div class="logo-area" onclick="showTab('games')">
+            <h1>AEROFORM STUDIOS</h1>
+        </div>
+        
+        <nav class="main-nav">
+            <button class="nav-btn active" id="btn-games" onclick="showTab('games')">OUR GAMES</button>
+            <button class="nav-btn" id="btn-news" onclick="showTab('news')">NEWS</button>
+        </nav>
+    </header>
 
+    <main class="main-content">
+        <div id="games" class="tab-pane active">
+            <section class="game-grid">
+                <div class="game-card" onclick="showProject('project-aero')">
+                    <div class="card-visual">
+                        <img src="Project_Aero_Game_Icon.png" alt="Project Aero Icon" class="game-icon">
+                        <div class="card-hover-info">VIEW PROJECT</div>
+                    </div>
+                    <div class="card-details">
+                        <div class="details-left">
+                            <span class="version-tag">BETA</span>
+                            <h3 class="card-title">PROJECT AERO</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="project-aero" class="tab-pane">
+            <button class="back-btn" onclick="showTab('games')">← BACK TO GAMES</button>
+            
+            <section class="project-header">
+                <h2 class="title-large">PROJECT <span class="outline-text">AERO</span></h2>
+                <div class="project-info-grid">
+                    <div class="info-left">
+                        <p class="project-description">Welcome to the aero project, you have been successfully digitized and integrated into the archive. Venture deep into the system and find the secrets beneath.</p>
+                        <p class="highlight-text">Also a very chaotic Multiplayer Sandbox game!</p>
+                        <a href="https://aseronni.itch.io/project-aero" target="_blank" class="external-link-btn">PLAY ON ITCH.IO ↗</a>
+                    </div>
+                    <div class="info-right">
+                        <div class="project-status">
+                            <span class="label">PLATFORMS</span>
+                            <span class="value">Windows, Linux, MacOS</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-gallery">
+                <h4 class="section-label">GALLERY</h4>
+                <div class="gallery-grid">
+                    <img src="https://img.itch.zone/aW1hZ2UvNDQ4MjgzOC8yNjcyNjcyMS5wbmc=/347x500/YHvvxu.png" alt="SS1" onclick="openLightbox(0)">
+                    <img src="https://img.itch.zone/aW1hZ2UvNDQ4MjgzOC8yNjgwNjQ5NS5wbmc=/347x500/ltjrdi.png" alt="SS2" onclick="openLightbox(1)">
+                    <img src="https://img.itch.zone/aW1hZ2UvNDQ4MjgzOC8yNjgwNjcyMS5wbmc=/347x500/TjCQbQ.png" alt="SS3" onclick="openLightbox(2)">
+                </div>
+            </section>
+
+            <section class="project-news">
+                <h4 class="section-label">LATEST UPDATES</h4>
+                <div class="news-mini-list">
+                    <div class="news-mini-item">
+                        <span class="date">5/2/2026</span>
+                        <p>TEST</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="news" class="tab-pane">
+            <section class="news-section">
+                <h2 class="section-title">NEWS</h2>
+                <div class="news-list">
+                    <div class="news-item">
+                        <span class="news-date">5/2/2026</span>
+                        <h3 class="news-headline">TEST</h3>
+                        <p>TEST</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged Screenshot">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
