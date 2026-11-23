@@ -1,111 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="description" content="Aeroform Studios is an independent game development studio. Explore Project Aero, studio news and the latest releases.">
     <title>Aeroform Studios | Independent Game Development</title>
-    <meta name="description" content="Aeroform Studios is an independent game development studio creating unique, immersive and interactive gaming experiences. Explore our projects, news and latest updates.">
-    <meta name="theme-color" content="#101010">
 
     <link rel="stylesheet" href="style.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-
 <body class="aero-portfolio">
     <div class="grid-layer" aria-hidden="true"></div>
 
-    <!-- HEADER -->
     <header class="header">
-        <div class="logo-area" onclick="showTab('games')">
-            <h1>AEROFORM STUDIOS</h1>
-        </div>
+        <button type="button" class="logo-area" onclick="showTab('games')" aria-label="Aeroform Studios home">
+            <span class="site-logo">AEROFORM STUDIOS</span>
+        </button>
 
         <nav class="main-nav" aria-label="Main navigation">
-            <button type="button" class="nav-btn active" id="btn-games" onclick="showTab('games')">
-                OUR GAMES
-            </button>
-            <button type="button" class="nav-btn" id="btn-news" onclick="showTab('news')">
-                NEWS
-            </button>
+            <button type="button" class="nav-btn active" id="btn-games" onclick="showTab('games')" aria-current="page">OUR GAMES</button>
+            <button type="button" class="nav-btn" id="btn-news" onclick="showTab('news')">NEWS</button>
         </nav>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-
-        <!-- GAMES -->
-        <div id="games" class="tab-pane active">
-            <section class="game-grid" aria-label="Our games">
-
-                <div class="game-card"
-                     role="button"
-                     tabindex="0"
-                     aria-label="View Project Aero"
-                     onclick="showProject('project-aero')"
-                     onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showProject('project-aero'); }">
-
-                    <div class="card-visual">
-                        <img src="Project_Aero_Game_Icon.png"
-                             alt="Project Aero"
-                             class="game-icon">
-
-                        <div class="card-hover-info">
-                            VIEW PROJECT
-                        </div>
-                    </div>
-
-                    <div class="card-details">
-                        <div class="details-left">
+    <main class="main-content" id="main-content">
+        <section id="games" class="tab-pane active" aria-label="Our games">
+            <div class="game-grid">
+                <button type="button" class="game-card" onclick="showProject('project-aero')" aria-label="View Project Aero">
+                    <span class="card-visual">
+                        <img src="Project_Aero_Game_Icon.png" alt="Project Aero icon" class="game-icon">
+                        <span class="card-hover-info">VIEW PROJECT</span>
+                    </span>
+                    <span class="card-details">
+                        <span class="details-left">
                             <span class="version-tag">BETA</span>
-                            <h3 class="card-title">PROJECT AERO</h3>
-                        </div>
-                    </div>
-                </div>
+                            <span class="card-title">PROJECT AERO</span>
+                        </span>
+                    </span>
+                </button>
+            </div>
+        </section>
 
-            </section>
-        </div>
+        <section id="project-aero" class="tab-pane" aria-label="Project Aero details" hidden>
+            <button type="button" class="back-btn" onclick="showTab('games')">← BACK TO GAMES</button>
 
-        <!-- PROJECT AERO -->
-        <div id="project-aero" class="tab-pane">
-
-            <button type="button" class="back-btn" onclick="showTab('games')">
-                ← BACK TO GAMES
-            </button>
-
-            <section class="project-header">
-                <h2 class="title-large">
-                    PROJECT <span class="outline-text">AERO</span>
-                </h2>
-
+            <div class="project-header">
+                <h1 class="title-large">PROJECT <span class="outline-text">AERO</span></h1>
                 <div class="project-info-grid">
                     <div class="info-left">
-                        <p class="project-description">
-                            Welcome to Project Aero, a multiplayer sandbox
-                            experience set within a mysterious digital archive.
-                            Having been successfully digitised and integrated
-                            into the system, you are free to explore its
-                            environments, uncover hidden secrets, and discover
-                            what lies beneath the surface.
-                        </p>
-
-                        <p class="highlight-text">
-                            Explore, experiment, and experience the unexpected
-                            in a chaotic multiplayer sandbox.
-                        </p>
-
-                        <a href="https://aseronni.itch.io/project-aero"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="external-link-btn">
-                            PLAY ON ITCH.IO ↗
-                        </a>
+                        <p class="project-description">Welcome to Project Aero, a multiplayer sandbox set within a mysterious digital archive. After being digitised and integrated into the system, explore its environments, uncover hidden secrets, and discover what lies beneath the surface.</p>
+                        <p class="highlight-text">Explore, experiment, and embrace the unexpected in a chaotic multiplayer sandbox.</p>
+                        <a href="https://aseronni.itch.io/project-aero" target="_blank" rel="noopener noreferrer" class="external-link-btn">PLAY ON ITCH.IO ↗</a>
                     </div>
-
                     <div class="info-right">
                         <div class="project-status">
                             <span class="label">PLATFORMS</span>
@@ -113,103 +62,61 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <!-- GALLERY -->
-            <section class="project-gallery">
-                <h3 class="section-label">GALLERY</h3>
-
+            <section class="project-gallery" aria-labelledby="gallery-heading">
+                <h2 id="gallery-heading" class="section-label">GALLERY</h2>
                 <div class="gallery-grid">
-                    <img src="https://img.itch.zone/aW1hZ2UvNDQ4MjgzOC8yNjcyNjcyMS5wbmc=/347x500/YHvvxu.png"
-                         alt="Project Aero gameplay screenshot 1"
-                         loading="lazy"
-                         onclick="openLightbox(0)">
-
-                    <img src="https://img.itch.zone/aW1hZ2UvNDQ4MjgzOC8yNjgwNjQ5NS5wbmc=/347x500/ltjrdi.png"
-                         alt="Project Aero gameplay screenshot 2"
-                         loading="lazy"
-                         onclick="openLightbox(1)">
-
-                    <img src="https://img.itch.zone/aW1hZ2UvNDQ4MjgzOC8yNjgwNjcyMS5wbmc=/347x500/TjCQbQ.png"
-                         alt="Project Aero gameplay screenshot 3"
-                         loading="lazy"
-                         onclick="openLightbox(2)">
+                    <button type="button" class="gallery-item" onclick="openLightbox(0)" aria-label="Enlarge Project Aero screenshot 1">
+                        <img src="https://img.itch.zone/aW1hZ2UvNDQ4MjgzOC8yNjcyNjcyMS5wbmc=/347x500/YHvvxu.png" alt="Project Aero screenshot 1" loading="lazy">
+                    </button>
+                    <button type="button" class="gallery-item" onclick="openLightbox(1)" aria-label="Enlarge Project Aero screenshot 2">
+                        <img src="https://img.itch.zone/aW1hZ2UvNDQ4MjgzOC8yNjgwNjQ5NS5wbmc=/347x500/ltjrdi.png" alt="Project Aero screenshot 2" loading="lazy">
+                    </button>
+                    <button type="button" class="gallery-item" onclick="openLightbox(2)" aria-label="Enlarge Project Aero screenshot 3">
+                        <img src="https://img.itch.zone/aW1hZ2UvNDQ4MjgzOC8yNjgwNjcyMS5wbmc=/347x500/TjCQbQ.png" alt="Project Aero screenshot 3" loading="lazy">
+                    </button>
                 </div>
             </section>
 
-            <!-- PROJECT UPDATES -->
-            <section class="project-news">
-                <h3 class="section-label">LATEST UPDATES</h3>
-
+            <section class="project-news" aria-labelledby="updates-heading">
+                <h2 id="updates-heading" class="section-label">LATEST UPDATES</h2>
                 <div class="news-mini-list">
                     <article class="news-mini-item">
-                        <time class="date" datetime="2026-05-02">
-                            2 MAY 2026
-                        </time>
-                        <p>VERSION 0.0.56</p>
+                        <time class="date" datetime="2026-05-02">2 MAY 2026</time>
+                        <p class="update-version">VERSION 0.0.56</p>
                         <p>Beta Release Patch #1</p>
                     </article>
                 </div>
             </section>
-        </div>
+        </section>
 
-        <!-- NEWS -->
-        <div id="news" class="tab-pane">
-            <section class="news-section">
-                <h2 class="section-title">LATEST NEWS</h2>
-
+        <section id="news" class="tab-pane" aria-labelledby="news-heading" hidden>
+            <div class="news-section">
+                <h1 id="news-heading" class="section-title">LATEST NEWS</h1>
                 <div class="news-list">
                     <article class="news-item">
-                        <time class="news-date" datetime="2026-05-02">
-                            2 MAY 2026
-                        </time>
-
-                        <h3 class="news-headline">
-                            Project Aero | Version 0.0.56
-                        </h3>
-
+                        <time class="news-date" datetime="2026-05-02">2 MAY 2026</time>
+                        <h2 class="news-headline">Project Aero | Version 0.0.56</h2>
                         <p>Beta Release Patch #1</p>
                     </article>
                 </div>
-            </section>
-        </div>
-
+            </div>
+        </section>
     </main>
 
-    <!-- IMAGE LIGHTBOX -->
-    <div id="lightbox"
-         class="lightbox"
-         role="dialog"
-         aria-modal="true"
-         aria-label="Screenshot viewer"
-         onclick="closeLightbox()">
-
-        <button type="button"
-                class="close-btn"
-                aria-label="Close screenshot"
-                onclick="closeLightbox()">
-            &times;
-        </button>
-
-        <img id="lightbox-img"
-             src=""
-             alt="Enlarged Project Aero screenshot">
-    </div>
-
-    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-content">
             <span class="footer-brand">AEROFORM STUDIOS</span>
-
-            <p class="footer-copyright">
-                &copy; 2026 Aeroform Studios. All rights reserved.
-            </p>
-
-            <span class="footer-description">
-                Independent Game Development
-            </span>
+            <p class="footer-copyright">&copy; 2026 Aeroform Studios. All rights reserved.</p>
+            <span class="footer-description">INDEPENDENT GAME DEVELOPMENT</span>
         </div>
     </footer>
+
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer" aria-hidden="true">
+        <button type="button" class="close-btn" aria-label="Close screenshot" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" alt="Enlarged Project Aero screenshot">
+    </div>
 
     <script src="script.js"></script>
 </body>
